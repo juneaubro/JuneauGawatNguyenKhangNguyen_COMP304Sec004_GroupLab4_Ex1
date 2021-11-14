@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.UpdateInfoActivity">
+
+    <EditText
+        android:id="@+id/ss2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Student ID"
+        android:inputType="number"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/firstn2"
+        app:layout_constraintStart_toStartOf="@+id/firstn2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ddt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Department"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/pid2"
+        app:layout_constraintStart_toStartOf="@+id/pid2"
+        app:layout_constraintTop_toBottomOf="@+id/lastn2" />
+
+    <EditText
+        android:id="@+id/pid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Professor ID"
+        android:inputType="number"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/cid2"
+        app:layout_constraintStart_toStartOf="@+id/cid2"
+        app:layout_constraintTop_toBottomOf="@+id/ddt2" />
+
+    <EditText
+        android:id="@+id/cid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Classroom ID"
+        android:inputType="number"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/updateData"
+        app:layout_constraintStart_toStartOf="@+id/updateData"
+        app:layout_constraintTop_toBottomOf="@+id/pid2" />
+
+    <EditText
+        android:id="@+id/lastn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/ddt2"
+        app:layout_constraintStart_toStartOf="@+id/ddt2"
+        app:layout_constraintTop_toBottomOf="@+id/firstn2" />
+
+    <Button
+        android:id="@+id/updateData"
+        android:layout_width="212dp"
+        android:layout_height="55dp"
+        android:onClick="UpdateData"
+        android:text="Update"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cid2"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <EditText
+        android:id="@+id/firstn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/lastn2"
+        app:layout_constraintStart_toStartOf="@+id/lastn2"
+        app:layout_constraintTop_toBottomOf="@+id/ss2" />
+
+    <TextView
+        android:id="@+id/sinfo"
+        android:layout_width="182dp"
+        android:layout_height="697dp"
+        android:layout_marginStart="213dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="136dp"
+        android:text="@string/professor_must_login_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

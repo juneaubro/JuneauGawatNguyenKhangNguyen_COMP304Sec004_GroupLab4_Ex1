@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JuneauGawatNguyen KhangNguyen_COMP304Sec004_GroupLab4_Ex1</string>
+    <string name="pass">Pass</string>
+    <string name="id">ID</string>
+    <string name="login">Login</string>
+    <string name="_123">123</string>
+    <string name="_1">1</string>
+    <string name="enter_data">Enter data</string>
+    <string name="professor_must_login_first">Professor must login first</string>
+    <string-array name="activities">
+        <item>LoginActivity</item>
+        <item>StudentActivity</item>
+        <item>ClassroomActivity</item>
+        <item>ViewClassroomInfoActivity</item>
+        <item>UpdateInfoActivity</item>
+    </string-array>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/activity_main.xml" value="0.320596458527493" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/activity_student.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/activity_student_layout.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/activity_update_info.xml" value="0.346875" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/activity_view_classroom_info.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/classroomactl.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/juneau/Documents/school/SchoolWork/Fall2021/mobile apps/JuneauGawatNguyenKhangNguyen_COMP304Sec004_GroupLab4_Ex1/app/src/main/res/layout/loginlayout.xml" value="0.346875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
