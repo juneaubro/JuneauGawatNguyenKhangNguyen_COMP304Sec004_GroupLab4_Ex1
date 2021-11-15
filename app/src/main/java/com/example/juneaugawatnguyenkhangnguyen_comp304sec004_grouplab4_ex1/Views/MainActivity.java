@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +24,11 @@ import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.View
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    //preference data variable
+    private SharedPreferences myPreference;
+    //variable to modify preference data
+    SharedPreferences.Editor prefEditor;
+
     private ProfessorViewModel professorViewModel;
     private ClassroomViewModel classroomViewModel;
     private StudentViewModel studentViewModel;
@@ -30,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myPreference = getSharedPreferences("info", MODE_PRIVATE);
+        prefEditor = myPreference.edit();
+
         professorViewModel = ViewModelProviders.of(this).get(ProfessorViewModel.class);
         classroomViewModel = ViewModelProviders.of(this).get(ClassroomViewModel.class);
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
@@ -74,5 +83,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+    }
+    public void Logout(View view)
+    {
+        //clear shared preferences
+        prefEditor.clear();
+        prefEditor.commit();
     }
 }

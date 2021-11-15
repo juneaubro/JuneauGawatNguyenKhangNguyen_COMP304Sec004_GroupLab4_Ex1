@@ -53,7 +53,8 @@ public class Professor {
         this.password = password;
     }
 
-    public Professor(String firstname, String lastname, String department, String password) {
+    public Professor(int professorId,String firstname, String lastname, String department, String password) {
+        this.professorId = professorId;
         this.firstname = firstname;
         this.lastname = lastname;
         this.department = department;

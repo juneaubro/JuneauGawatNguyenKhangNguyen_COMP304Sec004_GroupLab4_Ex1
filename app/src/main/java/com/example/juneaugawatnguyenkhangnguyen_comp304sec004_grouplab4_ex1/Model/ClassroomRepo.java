@@ -45,37 +45,6 @@ public class ClassroomRepo {
                     insertResult.postValue(1);
                 } catch (Exception e) {
                     System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
-                    System.out.println("ERROR"+e);
                     insertResult.postValue(0);
                 }
             }

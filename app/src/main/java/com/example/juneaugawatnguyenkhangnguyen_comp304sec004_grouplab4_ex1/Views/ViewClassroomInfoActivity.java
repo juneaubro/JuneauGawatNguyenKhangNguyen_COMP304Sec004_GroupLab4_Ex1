@@ -6,8 +6,11 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.Model.Classroom;
@@ -19,41 +22,64 @@ import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.View
 import java.util.List;
 
 public class ViewClassroomInfoActivity extends AppCompatActivity {
+    private SharedPreferences myPreference;
+
     private StudentViewModel studentViewModel;
     private ClassroomViewModel classroomViewModel;
+    int selectedClassroomOfStudent;
+    private EditText chooseStudentIDEd;
+    private Button chooseStudentBtn;
+    private TextView classroomInfoTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_classroom_info);
-        TextView s = (TextView)findViewById(R.id.textView3);
-        TextView c = (TextView)findViewById(R.id.textView2);
+
+        myPreference = getSharedPreferences("info",MODE_PRIVATE);
+
+        chooseStudentIDEd = (EditText)findViewById(R.id.choosenStudentIDEd2);
+        chooseStudentBtn = (Button)findViewById(R.id.chooseStudentBtn2);
+        classroomInfoTxt = (TextView)findViewById(R.id.classroomInfoTxt);
+        TextView loggedInTxt3 = (TextView) findViewById(R.id.loggedInTxt3);
+        loggedInTxt3.setText("Logged in as: " + myPreference.getInt("loggedInProfessorID", 0));
+
         classroomViewModel = ViewModelProviders.of(this).get(ClassroomViewModel.class);
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
+
+        if(myPreference.getBoolean("loggedIn", false)){
+            chooseStudentIDEd.setVisibility(View.VISIBLE);
+            chooseStudentBtn.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+    public void ViewClassroomInfo(View view)
+    {
         studentViewModel.getAllStudents().observe((LifecycleOwner) this, new Observer<List<Student>>() {
             @Override
             public void onChanged(@Nullable List<Student> result) {
-                if(LoginActivity.loggedIn) {
-                    String output = "";
-                    for (Student s : result) {
-                        //output += String.format("First name: %s\nLast name: %s\nDepartment: %s\n\n", s.getFirstname(), s.getLastname(), s.getDepartment());
-                        output += String.format("StudentID: %s\nFirst name: %s\nLast name: %s\nDepartment: %s\nProfessorID: %s\nClassroomID: %s\n\n",s.getStudentId(), s.getFirstname(), s.getLastname(), s.getDepartment(),s.getProfessorId(),s.getClassroomId());
+                for (Student s : result) {
+                    if (s.getStudentId() == Integer.parseInt(chooseStudentIDEd.getText().toString()))
+                    {
+                        selectedClassroomOfStudent = s.getClassroomId();
                     }
-                    s.setText(output);
-                } else{
-                    s.setText("Professor must login first.");
                 }
             }
         });
+
         classroomViewModel.getAllClassrooms().observe((LifecycleOwner) this, new Observer<List<Classroom>>() {
             @Override
             public void onChanged(@Nullable List<Classroom> result) {
-                if(LoginActivity.loggedIn) {
+                if(myPreference.getBoolean("loggedIn", false)) {
                     String output = "";
                     for (Classroom c : result) {
-                        //output += String.format("First name: %s\nLast name: %s\nDepartment: %s\n\n", s.getFirstname(), s.getLastname(), s.getDepartment());
-                        output += String.format("ClassroomID: %s\nFloor: %s\nAirconditioned: %s\n\n",c.getClassroomId(),c.getFloor(),c.getAriconditioned());
+                        if (c.getClassroomId() == selectedClassroomOfStudent)
+                        {
+                            output += String.format("ClassroomID: %s\nStudentID: %s\nProfessorID: %s\nFloor: %s\nAirconditioned: %s\n\n",c.getClassroomId(),c.getStudentId(),c.getProfessorId(),c.getFloor(),c.getAriconditioned());
+                        }
                     }
-                    c.setText(output);
+                    classroomInfoTxt.setText(output);
                 }
             }
         });

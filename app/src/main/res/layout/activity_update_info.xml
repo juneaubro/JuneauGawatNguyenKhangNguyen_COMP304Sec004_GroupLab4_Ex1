@@ -6,44 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".Views.UpdateInfoActivity">
 
+    <TextView
+        android:id="@+id/loggedInTxt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
-        android:id="@+id/ss2"
+        android:id="@+id/studentIDEd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Student ID"
         android:inputType="number"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/firstn2"
-        app:layout_constraintStart_toStartOf="@+id/firstn2"
+        app:layout_constraintBottom_toTopOf="@+id/firstnameEd2"
+        app:layout_constraintStart_toStartOf="@+id/firstnameEd2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ddt2"
+        android:id="@+id/firstnameEd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="First name"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/lastnameEd2"
+        app:layout_constraintStart_toStartOf="@+id/lastnameEd2"
+        app:layout_constraintTop_toBottomOf="@+id/studentIDEd2" />
+
+    <EditText
+        android:id="@+id/lastnameEd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Last name"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/departmentEd2"
+        app:layout_constraintStart_toStartOf="@+id/departmentEd2"
+        app:layout_constraintTop_toBottomOf="@+id/firstnameEd2" />
+
+    <EditText
+        android:id="@+id/departmentEd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Department"
         android:inputType="textPersonName"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/pid2"
-        app:layout_constraintStart_toStartOf="@+id/pid2"
-        app:layout_constraintTop_toBottomOf="@+id/lastn2" />
+        app:layout_constraintBottom_toTopOf="@+id/professorIDEd2"
+        app:layout_constraintStart_toStartOf="@+id/professorIDEd2"
+        app:layout_constraintTop_toBottomOf="@+id/lastnameEd2" />
 
     <EditText
-        android:id="@+id/pid2"
+        android:id="@+id/professorIDEd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Professor ID"
         android:inputType="number"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/cid2"
-        app:layout_constraintStart_toStartOf="@+id/cid2"
-        app:layout_constraintTop_toBottomOf="@+id/ddt2" />
+        app:layout_constraintBottom_toTopOf="@+id/classroomIDEd3"
+        app:layout_constraintStart_toStartOf="@+id/classroomIDEd3"
+        app:layout_constraintTop_toBottomOf="@+id/departmentEd2" />
 
     <EditText
-        android:id="@+id/cid2"
+        android:id="@+id/classroomIDEd3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -52,19 +85,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/updateData"
         app:layout_constraintStart_toStartOf="@+id/updateData"
-        app:layout_constraintTop_toBottomOf="@+id/pid2" />
-
-    <EditText
-        android:id="@+id/lastn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Last name"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/ddt2"
-        app:layout_constraintStart_toStartOf="@+id/ddt2"
-        app:layout_constraintTop_toBottomOf="@+id/firstn2" />
+        app:layout_constraintTop_toBottomOf="@+id/professorIDEd2" />
 
     <Button
         android:id="@+id/updateData"
@@ -74,20 +95,8 @@
         android:text="Update"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cid2"
-        tools:layout_editor_absoluteX="1dp" />
-
-    <EditText
-        android:id="@+id/firstn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="First name"
-        android:inputType="textPersonName"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/lastn2"
-        app:layout_constraintStart_toStartOf="@+id/lastn2"
-        app:layout_constraintTop_toBottomOf="@+id/ss2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classroomIDEd3" />
 
     <TextView
         android:id="@+id/sinfo"

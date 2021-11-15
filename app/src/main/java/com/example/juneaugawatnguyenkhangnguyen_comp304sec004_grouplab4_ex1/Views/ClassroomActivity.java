@@ -1,8 +1,7 @@
 package com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.Views;
 
-import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,38 +14,54 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.Model.Classroom;
-import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.Model.Student;
 import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.R;
 import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.ViewModel.ClassroomViewModel;
-import com.example.juneaugawatnguyenkhangnguyen_comp304sec004_grouplab4_ex1.ViewModel.StudentViewModel;
 
 public class ClassroomActivity extends AppCompatActivity {
+    private SharedPreferences myPreference;
+
     private ClassroomViewModel classroomViewModel;
-    private EditText c;
-    private EditText a;
-    private EditText floor;
-    private Button b;
-    private TextView textView;
+    private EditText classroomIDEd2;
+    private EditText airconditionedEd;
+    private EditText floorEd;
+    private Button addClassroomBtn;
+    private EditText chooseStudentIDEd;
+    private Button chooseStudentBtn;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.classroomactl);
-        c = (EditText) findViewById(R.id.ccid);
-        floor = (EditText) findViewById(R.id.floor);
-        a = (EditText) findViewById(R.id.airc);
-        b = (Button) findViewById(R.id.addc);
-        textView = (TextView) findViewById(R.id.textView4);
-        if(LoginActivity.loggedIn){
-            c.setVisibility(View.VISIBLE);
-            floor.setVisibility(View.VISIBLE);
-            a.setVisibility(View.VISIBLE);
-            b.setVisibility(View.VISIBLE);
-            textView.setVisibility(View.INVISIBLE);
+        setContentView(R.layout.activity_classroom);
+
+        myPreference = getSharedPreferences("info",MODE_PRIVATE);
+
+        classroomIDEd2 = (EditText) findViewById(R.id.classroomIDEd2);
+        floorEd = (EditText) findViewById(R.id.floorEd);
+        airconditionedEd = (EditText) findViewById(R.id.airconditionedEd);
+        addClassroomBtn = (Button) findViewById(R.id.addClassroomBtn);
+
+        TextView loggedInTxt2 = (TextView) findViewById(R.id.loggedInTxt2);
+        loggedInTxt2.setText("Logged in as: " + myPreference.getInt("loggedInProfessorID", 0));
+        chooseStudentIDEd = (EditText) findViewById(R.id.choosenStudentIDEd);
+        chooseStudentBtn = (Button) findViewById(R.id.chooseStudentBtn);
+
+        if(myPreference.getBoolean("loggedIn", false)){
+            chooseStudentIDEd.setVisibility(View.VISIBLE);
+            chooseStudentBtn.setVisibility(View.VISIBLE);
+
         }
+    }
+
+    public void ChooseStudent(View view)
+    {
+        classroomIDEd2.setVisibility(View.VISIBLE);
+        floorEd.setVisibility(View.VISIBLE);
+        airconditionedEd.setVisibility(View.VISIBLE);
+        addClassroomBtn.setVisibility(View.VISIBLE);
+
     }
     public void AddClassroom(View view){
         classroomViewModel = ViewModelProviders.of(this).get(ClassroomViewModel.class);
-        classroomViewModel.insert(new Classroom(Integer.parseInt(c.getText().toString()),floor.getText().toString(),a.getText().toString(),0,0));
+        classroomViewModel.insert(new Classroom(Integer.parseInt(classroomIDEd2.getText().toString()), floorEd.getText().toString(), airconditionedEd.getText().toString(),Integer.parseInt(chooseStudentIDEd.getText().toString()) ,myPreference.getInt("loggedInProfessorID", 0)));
         classroomViewModel.getInsertResult().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer result) {
